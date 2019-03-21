@@ -1,0 +1,26 @@
+#Base pattern
+1: primitive data
+2: means of combination
+3: means of abstracion
+
+
+(operator operand operand)  : primitive data
+
+(define (func parameter) (operator operand operand))  : combination define a processure
+
+(operator (func A)  (func B) ) abstraction :  regard func as a blackbox to get output
+
+if (predicate) (true then blabla)  (flase then blalba)
+cond (p)(t)
+     (p)(t)
+     (p)(t)
+     ....
+     
+ 
+ 1:counting changes :
+ 给定总额100元 和 无限张面值为 1 5 10 25 50的钞票 求有多少总组合方式
+ 思路：一个自下而上的
+     f(x y) = f(x-5 y +5) +1
+            = f(x-10,y+)
+  
+ 
