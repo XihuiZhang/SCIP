@@ -18,9 +18,83 @@ cond (p)(t)
      
  
  1:counting changes :
- 给定总额100元 和 无限张面值为 1 5 10 25 50的钞票 求有多少总组合方式
- 思路：一个自下而上的
-     f(x y) = f(x-5 y +5) +1
-            = f(x-10,y+)
+ 给定总额100元 和 无限张面值为 1 5 10 25 50的钞票 求有多少种组合。
+ f(k sum)表示k种无限面额的钞票组合成为总和为sum价值的f（k sum）种方法
+ f(k sum) = f(k-1 sum) + f（k sum-w（k1））
+ 
+ Exercise1.11: 写一个递归和迭代的程序来计算下列
+               f(n) =  n   n<3
+                   =  f(n-1)  +2*f(n-2)+ 3*f(n-3)
+               (define (f n)
+                    (if(< n 3 ) n
+                         (+ (- f 1) (* 2  (- f 2 ) ) (* 3 ( - f 3 ))))
+                       
+            从斐波那契的算法来看 可以通过从底向上的方式 用memory 记录前面相关的结果带入方程 计算
+                (define (f n ) 
+                    (if  ( n < 3) n
+                         (+ (f (- n 1))  ) (* 2 (f (- n 2))) (* 3 (f (- n 3) ) )))))
+                (define iterative a b c d n)
+                    if(d = n)  fn
+                         (+ iterative( （f a）(f b) (f c) （+ d 1）))））
+  //                       
+                 
+                         
+ Exercise1.12: here is a pattern called pascal triangle ,write a recursive processure to compute pattern's value（build this graph？）
+             1
+            1 1
+          1  2  1
+         1  3  3  1
+        1  4  6  4  1            
+        
+        1
+        1 1
+        1 2 1
+        1 3 3 1
+        1 4 6 4 1
+        
+        f(a b) = f(a-1 b-1)+ f(a b-1)
+        f(n n) = 1 
+        f(0 n) = 1
+        (define (f a b)
+          cond (((= a n) and (= b n)) 1)
+               ((= a 0) 1)
+               (+(f (-a 1)(- b 1)) (f a (- b 1))))
+        f(n n)
+            
+        
+ Exercise  1.13 prove Fib(n) = (（1+\sqrt{2})/2)）/\sqrt{5}
   
  
+ #1.2.3 order of growth 
+     Let n be a parameter that measures the size of the problem
+     R(n) be the amount of resources the process requires for a problem of size n
+     
+     We saythat R(n)has order of growthΘ(f (n)),wrien R(n)=Θ(f (n))
+     (pronounced “theta of f (n)”), if there are positive constants k 1 and k 2
+     independent of n such that k 1 f (n) ≤ R(n) ≤ k 2 f (n) for any sufficiently
+     largevalueofn.(Inotherwords,forlargen,thevalueR(n)issandwiched
+     between k 1 f (n) and k 2 f (n).)
+     
+    
+    
+    Exercise 1.14: Draw the tree illustrating the process gen-
+erated by the count-change procedure of Section 1.2.2 in
+making change for 11 cents. What are the orders of growth
+of the space and nu mber of steps used by this process as
+the amount to be changed increases?
+
+
+
+11                                    
+1 10                     
+1 1 9                      5   5
+   1 1 8
+      1 1 7
+        1 1 6        
+           1 1 5       
+             ...
+               1  1
+
+ 
+     
+
