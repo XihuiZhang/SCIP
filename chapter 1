@@ -97,4 +97,35 @@ the amount to be changed increases?
 
  
      
-
+Exercise 1.16 写一个快速幂算法 
+         y = x^n
+         n = 1011011........ = 2^a+2^b+2c+....
+         
+         define (f x n bit) 
+               (if(< n bit) 0
+                   (+ (* (Isone n bit ) (* x x)) f((* x x) n (* bit 2)))
+         ( define ( Isone n bit )
+               ( if(& n bit) 1 0)
+                    
+Exercise 1.17 
+         (define (* a b bit)
+             (if (> bit a)
+                  0
+                 (if(= (Isone b bit) 0) 
+                    0
+                    (+ bit  (* a b (+ bit bit))) ))
+             
+   
+Exercise 1.18: Using the results of Exercise 1.16 and 
+Exercise 1.17,devise a procedure tha tgenerates an iterative 
+process for multiplying two integers in terms of adding, dou-
+bling,and halving and uses a logarithmic number o fsteps. 40         
+              (define (* a b)
+                   (cond (< b 1) 0
+                         (= b 1) a
+                         (if (and (/ b 2) 1)  
+                         (+ (* a (/ b 2))  (+a a))
+                             
+             
+             
+             
