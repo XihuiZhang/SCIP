@@ -128,4 +128,58 @@ bling,and halving and uses a logarithmic number o fsteps. 40
                              
              
              
-             
+Exercise 1.19 这道题目算是我觉得挺难的一道（答案很简单
+而且答案的简单在于 将矩阵之间的乘法很自然的看作了程序迭代过程中
+T n = T(1/2 n)* T(1/2 n) （当然这也是显然的）程序的第n步可以由 1/2）n步的乘法算出
+题目只给出了 Tn与T(n-1)的关系，我想上述乘法关系这个结论能应用到
+怎样的代数结构中去，以及这个代数结构的性质 
+那么拥有同构数据结构的计算 可以logn
+F(N) = F(A)*F(B) AB = N
+F(A+B) = F(A)+F(B) 
+这是一个group
+在一般情况而言应该都是Abel group（没有单位元 和 零元？）
+
+greast commond divisors
+
+(define(gcd a b)
+     if( = (% a b) 0) (if(> a b ) b a)
+          (else (gcd b (% a b))
+          
+lame theorem：如果EUclid 算法需要K步去完成GCD的计算，那么在第x步
+的pair中的更小的那个 大于等于 第x个斐波那契数
+（表明 Euclid算法的时间复杂度为 logn）
+
+Excercise 20
+  gcd(206,40) =     gcd(40(% 206 40)
+                      gcd(40 6)
+                          gcd (6 (% 40 6))
+                          gcd (6 4)
+                          gcd (4 (% 6 4))
+                          gcd(4 2) 
+                          2
+  gcd(206,40) = 40 gcd (40())
+  
+根号n时间复杂度判断是否为素数
+(define (smallest-divisor n) (find-divisor n 2))
+(define (find-divisor n test-divisor)
+  (cond ((> (square test-divisor) n) n)
+     ((divides? test-divisor n) test-divisor)
+     (else (find-divisor n (+ test-divisor 1)))))
+(define (divides? a b) (= (remainder b a) 0))  
+  
+ O（logn） 素数判别法  Fermat’s litter theorem
+ 如果n是一个素数，a是任意一个比n小的正整数
+ a^n = a mod n
+ a^(n-1) = 1 mod n
+ 
+ (define (expmod base exp m ))
+    (cond ((= exp 0) 1)
+     (( even? exp)
+      (remainder
+        (square (expmod base (/ exp 2)m))
+         m))
+       (else
+         (reminder
+          （* base (expmod base (- exp 1）m))
+           m))))
+
