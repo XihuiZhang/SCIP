@@ -36,7 +36,17 @@ cond (p)(t)
                 (define iterative a b c d n)
                     if(d = n)  fn
                          (+ iterative( （f a）(f b) (f c) （+ d 1）))））
-  //                       
+  //                      
+     （define （fermat-test n）
+        (define (try-it a）
+          （= （expmod a n n）a）)
+        （try-it (+ 1 (random (- n 1))))）
+        
+        
+      (define (fast-prime? n times)
+          (cond ((= times 0)) true)
+                ((fermat-test n) (fast-prime? n (- times 1)))
+                (else false)))
                  
                          
  Exercise1.12: here is a pattern called pascal triangle ,write a recursive processure to compute pattern's value（build this graph？）
