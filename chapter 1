@@ -193,3 +193,64 @@ Excercise 20
           （* base (expmod base (- exp 1）m))
            m))))
 
+方程的根 by half interval method  (首先默认了interval 中必然有nage 和 pos)
+(define (search f neg-point pos-point))
+ (let ((midpoint (average neg-point pos-point)))
+  (if (close-enough? neg-point pos-point)
+     mid point
+     (let ((test-value (f midpoint)))
+       (cond ((positive? test-value)
+               (search f neg-point pos-point))
+             ((negative? test value)
+               (search f mid-point pos-point))
+              (else midpoint))))))
+   (define (close-enough? x y)
+     (< (abs (- x y) 0.001)
+    
+ finding fixed point of function f(x)= x 
+ ffffffffff（x） = x
+ 
+ (define tolerance 0.00001)
+ 
+ (define (fixd-point f first-guess)
+  (define (close-enough? v1 v2)
+     (< (abs (- v1 v2)) tolerance))
+  (define (try guess)
+     (let ((next (f guess)))
+          (if (close-enough? guess next)
+               next
+               (try next))))
+   (try first-guess).
+   
+   
+   
+   
+  (define (sqrt x)
+   (fixed-point (lambda (y) (average y (/ x y))1.0))
+   
+   
+  the average damping technique often aids the convergence of fixed-point searches
+   
+   
+   
+  EXercise1.35 黄金分割数是函数 x-> 1+1/x的fixed point
+(define (golden x)  
+  (fixdpoint (lambda (x) (average (+ 1 (/ 1 x) x) 1.0))
+  (define (try guess)
+     (let ((next (f guess)))
+        (if (close-enough? guess next)
+               next
+               (try next))))
+ (try first-guess)
+ 
+ 
+ 
+ Exercise1.37
+ (define tolerance 0.0000100)
+ (define good-enough? x
+     (< (abs (- x goldennumber.)))
+ (define f x)
+(define tolerance 0.00000000001)
+     (define(close-enough? v1 v2)
+          (< (abs (- v1 v2)) tolerance))
+     
