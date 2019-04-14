@@ -76,7 +76,7 @@ foo           ------instantiates itself
  ```
  ### 实例化一个 patterns with dict 就是对skeleton进行递归的做树的遍历
  ```
-  (define (instantiate skeleton dick)
+  (define (instantiate skeleton dict)
     (define (loop s)
       (cond ((atom? s) s)
         ((skeleton-evaluation? s)
@@ -86,8 +86,40 @@ foo           ------instantiates itself
   (loop skeleton)
  ```
 
-###
+### simplifier 
+```
+(define (simplifier the-rules)
+  (define (simplify-exp exp)            // sim-exp && sim-parts are used  to recursively simplify the exp
+    ***)                                // sim-exp simlify any whole exp and sim-parts sim part
+  (define (simplify-parts exp)
+    ***)
+  (define (try-rules exp)
+    ***)
+  simplify-exp)
+ ( define (try-rule exp)
+   (define scan rules)
+    ***)
+   (scan rules))
+```
+
+
+```
+(define (simplify-exp exp)
+  (try-rules (if (compound? exp)
+                 (simplify-parts exp)
+                 exp)))
+                 
+(define (simplify-parts exp)
+  (if (null? exp)
+    '()
+    (cond (simplify-exp (car exp))
+          (simplify-parts (cdr exp))))
+``` 
  
- 
- 
- 
+```
+ (define (simplify-exp exp)
+   (try-rules
+     (if (compound exp?)
+         (map simplify-exp exp)
+         exp)))
+```
